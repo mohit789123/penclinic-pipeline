@@ -53,3 +53,24 @@ pipeline {
                 sh " mvn clean install"
             }
         }
+        stage("Docker Build & Push"){
+            steps{
+                script{
+                   withDockerRegistry(credentialsId: '58be877c-9294-410e-98ee-6a959d73b352', toolName: 'docker') {
+                        
+                        sh "docker build -t image1 ."
+                        sh "docker tag image1 dockerm17/penclinic:latest "
+                        sh "docker push dockerm17/penclinic:latest "
+                    }
+                }
+            }
+        }
+        
+        stage("Deploy To Tomcat"){
+            steps{
+                sh "cp  /var/lib/jenkins/workspace/CI-CD/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/ "
+            }
+        }
+    }
+}
+
