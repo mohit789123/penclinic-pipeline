@@ -1,7 +1,7 @@
-//FROM eclipse-temurin:11-jre
-//EXPOSE 8081
-//ADD target/petclinic.war petclinic.war
-//ENTRYPOINT ["java","-jar","/petclinic.war"]
+#FROM eclipse-temurin:11-jre
+#EXPOSE 8081
+#ADD target/petclinic.war petclinic.war
+#ENTRYPOINT ["java","-jar","/petclinic.war"]
 # Use official Tomcat base image with JDK 11
 FROM tomcat:9.0-jdk11-openjdk
 
