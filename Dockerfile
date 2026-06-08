@@ -8,7 +8,7 @@ FROM tomcat:9.0.117-jdk17-openjdk
 WORKDIR /usr/local/tomcat/webapps
 RUN rm -rf ROOT
 COPY --from=builder /target/petclinic.war ./petclinic.war
-EXPOSE 8080
+EXPOSE 8081
 CMD ["catalina.sh" , "run"]
 
 
