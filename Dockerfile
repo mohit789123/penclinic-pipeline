@@ -7,7 +7,7 @@ RUN mvn clean package -DskipTests
 FROM tomcat:9.0-jdk11-openjdk
 WORKDIR /usr/local/tomcat/webapps
 RUN rm -rf ROOT
-COPY --from=builder /target/petclinic.war ./petclinic.war
+COPY --from=builder /petclinic/target/*.war ./petclinic.war
 EXPOSE 8081
 CMD ["catalina.sh" , "run"]
 
