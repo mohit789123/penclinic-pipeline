@@ -1,6 +1,6 @@
 #stage-1 Builder application
 FROM maven:3.9.6-eclipse-temurin-11 AS builder
-WORKDIR /app
+WORKDIR /petclinic
 COPY . .
 RUN mvn clean package -DskipTests
 #stage-2 runtime
