@@ -4,7 +4,7 @@ WORKDIR /petclinic
 COPY . .
 RUN mvn clean package -DskipTests
 #stage-2 runtime
-FROM tomcat:9.0-jdk11-openjdk
+FROM tomcat:10.1-jdk11-openjdk
 WORKDIR /usr/local/tomcat/webapps
 RUN rm -rf ROOT
 COPY --from=builder /petclinic/target/*.war ./petclinic.war
